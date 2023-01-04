@@ -2,6 +2,7 @@
 using Aspose.PSD;
 using Aspose.PSD.FileFormats.Psd;
 using Aspose.PSD.FileFormats.Psd.Layers;
+using Aspose.PSD.ImageOptions;
 using PsdEditor;
 
 try
@@ -32,7 +33,9 @@ try
         }
     }
 
-    psdImage.Save("Result/" + "FileResult" + ".png");
+    Directory.CreateDirectory("Result");
+    psdImage.Save("Result/" + "FileResult" + ".png", new PngOptions());
+    psdImage.Save("Result/" + "FileResult" + ".jpg", new JpegOptions());
 
     Console.WriteLine("Finish");
 }
